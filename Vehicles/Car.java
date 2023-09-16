@@ -3,7 +3,7 @@ package Vehicles;
 public class Car extends Vehicle {
     private final int topSpeed;
 
-    // for demo purposes, we make gpsSystem private
+    // for demo purposes, we make gpsSystem public
     public GpsSystem gpsSystem;
 
     public Car(String brand, String model, String color, int topSpeed, GpsSystem gpsSystem) {
@@ -14,8 +14,9 @@ public class Car extends Vehicle {
 
     @Override
     public Car clone() {
-        //clonedCar.gpsSystem = new GpsSystem();
-        return (Car) super.clone();
+        Car clonedCar = (Car) super.clone();
+        clonedCar.gpsSystem = new GpsSystem();
+        return clonedCar;
     }
 
     @Override
