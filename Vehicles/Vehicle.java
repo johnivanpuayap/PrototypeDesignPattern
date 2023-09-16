@@ -1,7 +1,6 @@
 package Vehicles;
 
-public abstract class Vehicle {
-
+public class Vehicle implements Cloneable {
     private final String brand;
     private final String model;
     private final String color;
@@ -12,19 +11,25 @@ public abstract class Vehicle {
         this.color = color;
     }
 
-    protected Vehicle(Vehicle vehicle) {
-        this.brand = vehicle.brand;
-        this.model = vehicle.model;
-        this.color = vehicle.color;
+    @Override
+    public Vehicle clone() {
+        try {
+            return (Vehicle) super.clone();
+        } catch (CloneNotSupportedException e) {
+            // Handle the exception as needed
+            return null;
+        }
     }
-
-    public abstract Vehicle clone();
 
     public String getBrand() {
         return brand;
     }
 
-    public String getModel(){
+    public String getModel() {
         return model;
+    }
+
+    public String getColor() {
+        return color;
     }
 }

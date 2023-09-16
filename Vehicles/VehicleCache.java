@@ -9,7 +9,7 @@ public class VehicleCache {
     private final Map<String, Vehicle> cache = new HashMap<>();
 
     public VehicleCache() {
-        Car car = new Car("Bugatti", "Chiron", "Blue", 261);
+        Car car = new Car("Bugatti", "Chiron", "Blue", 261, new GpsSystem());
         Bus bus = new Bus("Mercedes", "Setra", "White", 48);
 
         cache.put("Bugatti Chiron", car);
@@ -17,7 +17,7 @@ public class VehicleCache {
     }
 
     public Vehicle get(String key) {
-        return cache.get(key).clone();
+        return (Vehicle) cache.get(key).clone();
     }
 
     public void put(List<Vehicle> vehicles) {

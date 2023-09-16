@@ -9,14 +9,13 @@ public class Bus extends Vehicle {
         this.doors = doors;
     }
 
-    private Bus(Bus bus) {
-        super(bus);
-        this.doors = bus.doors;
+    @Override
+    public Vehicle clone() {
+        return (Bus) super.clone();
     }
 
     @Override
-    public Bus clone() {
-        return new Bus(this);
+    public String toString() {
+        return super.toString() + "\nBrand: " + getBrand() + "\nModel: " + getModel();
     }
-
 }

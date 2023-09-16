@@ -1,22 +1,29 @@
 package Vehicles;
 
 public class Car extends Vehicle {
-
     private final int topSpeed;
 
-    public Car(String brand, String model, String color, int topSpeed) {
+    // for demo purposes, we make gpsSystem private
+    public GpsSystem gpsSystem;
+
+    public Car(String brand, String model, String color, int topSpeed, GpsSystem gpsSystem) {
         super(brand, model, color);
         this.topSpeed = topSpeed;
-    }
-
-    private Car(Car car) {
-        super(car);
-        this.topSpeed = car.topSpeed;
+        this.gpsSystem = gpsSystem;
     }
 
     @Override
-    public Car clone() {
-        return new Car(this);
+    public Vehicle clone() {
+        Car clonedCar = (Car) super.clone();
+        //clonedCar.gpsSystem = new GpsSystem();
+        return clonedCar;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "\nCar {" +
+                "topSpeed=" + topSpeed +
+                ", gpsSystem=" + gpsSystem.getMessage() +
+                '}';
+    }
 }
