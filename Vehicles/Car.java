@@ -13,10 +13,9 @@ public class Car extends Vehicle {
     }
 
     @Override
-    public Vehicle clone() {
-        Car clonedCar = (Car) super.clone();
+    public Car clone() {
         //clonedCar.gpsSystem = new GpsSystem();
-        return clonedCar;
+        return (Car) super.clone();
     }
 
     @Override

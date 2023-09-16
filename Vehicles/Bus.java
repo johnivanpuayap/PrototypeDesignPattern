@@ -10,7 +10,7 @@ public class Bus extends Vehicle {
     }
 
     @Override
-    public Vehicle clone() {
+    public Bus clone() {
         return (Bus) super.clone();
     }
 
